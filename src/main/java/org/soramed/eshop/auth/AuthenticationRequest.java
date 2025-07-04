@@ -1,7 +1,7 @@
-package Auth;
+package org.soramed.eshop.auth;
 
 
-import User.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,11 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegistreRequest {
+public class AuthenticationRequest {
 
-    private String name;
     private String email;
     private String password;
-    private Role role;
-
 }

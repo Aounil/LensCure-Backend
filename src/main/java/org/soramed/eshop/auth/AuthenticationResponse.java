@@ -1,4 +1,4 @@
-package Auth;
+package org.soramed.eshop.auth;
 
 
 import lombok.AllArgsConstructor;

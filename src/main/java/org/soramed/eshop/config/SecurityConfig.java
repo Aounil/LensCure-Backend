@@ -1,4 +1,4 @@
-package config;
+package org.soramed.eshop.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -34,10 +34,10 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable CORS
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**").permitAll()  // Auth endpoints permit it for all roles
-                        .requestMatchers("/api/v1/demo-controller/admin/**").hasAuthority("ADMIN")  // Only ADMIN can access this
-                        .requestMatchers("/api/v1/demo-controller/user/**").hasAuthority("USER")   // Only USER can access this
-//                        .requestMatchers("/books/all").permitAll() // Allow access to /books/all without authentication
+                        .requestMatchers("/api/v1/auth/**").permitAll()  // auth endpoints permit it for all roles
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")  // Only ADMIN can access this
+                        .requestMatchers("/client/**").hasAuthority("CLIENT")   // Only USER can access this
+                        .requestMatchers("/stock/**").hasAuthority("GESTIONNAIRE_ACHAT")
                         .anyRequest().authenticated()  // All other requests need authentication
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

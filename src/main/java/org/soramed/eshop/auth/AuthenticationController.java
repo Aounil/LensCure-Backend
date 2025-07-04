@@ -1,9 +1,9 @@
-package Auth;
+package org.soramed.eshop.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.EmailService;
+import org.soramed.eshop.service.EmailService;
 
 
 // will have 2 end points that will allow me to creat or register a new acc or authenticate an existing user
@@ -16,14 +16,9 @@ import service.EmailService;
 public class AuthenticationController {
 
     private final AuthenticationService service;
-    private final service.EmailService emailService;
+    private final EmailService emailService;
 
 
-    @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegistreRequest request) {
-        emailService.sendEmail(request.getEmail(),"NEW MEMBER !!","Welcome to our family"+request.getName());
-        return ResponseEntity.ok(service.register(request));
-    }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {

@@ -1,4 +1,5 @@
-package User;
+package org.soramed.eshop.User;
+
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,7 +26,7 @@ import java.util.List;
 @Table(name = "_User_") //creat a database table for the class
 @Getter
 @Setter
-public class User implements UserDetails {//makes u r user a spring user
+public class User implements UserDetails {//makes u use a spring user
 
     @Id//use the id as the key id for the class
     @GeneratedValue//auto generate the int id
@@ -38,7 +39,7 @@ public class User implements UserDetails {//makes u r user a spring user
 
     private String password;
 
-    @Enumerated//use is when you are working with enum class
+    @Enumerated(EnumType.STRING)//use is when you are working with enum class
     private Role role;
 
 

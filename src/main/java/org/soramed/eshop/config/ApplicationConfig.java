@@ -1,6 +1,6 @@
-package config;
+package org.soramed.eshop.config;
 
-import User.UserRepository;
+import org.soramed.eshop.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

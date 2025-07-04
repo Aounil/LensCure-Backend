@@ -1,4 +1,4 @@
-package service;
+package org.soramed.eshop.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
