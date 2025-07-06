@@ -1,4 +1,4 @@
-package org.soramed.eshop.User;
+package org.soramed.LensCure.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

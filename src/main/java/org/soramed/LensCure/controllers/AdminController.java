@@ -1,16 +1,16 @@
-package org.soramed.eshop.controllers;
+package org.soramed.LensCure.controllers;
 
-import com.fasterxml.jackson.annotation.OptBoolean;
-import org.soramed.eshop.User.User;
-import org.soramed.eshop.User.UserRepository;
-import org.soramed.eshop.auth.AuthenticationResponse;
-import org.soramed.eshop.auth.AuthenticationService;
-import org.soramed.eshop.auth.RegistreRequest;
-import org.soramed.eshop.service.EmailService;
+import org.soramed.LensCure.User.User;
+import org.soramed.LensCure.User.UserRepository;
+import org.soramed.LensCure.auth.AuthenticationResponse;
+import org.soramed.LensCure.auth.AuthenticationService;
+import org.soramed.LensCure.auth.RegistreRequest;
+import org.soramed.LensCure.service.EmailService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @PreAuthorize("hasAnyAuthority('ADMIN')")
@@ -41,6 +41,11 @@ public class AdminController {
         User user = Opuser.get();
         userRepository.delete(user);
         return ResponseEntity.ok("the user has been deleed");
+    }
+
+    @GetMapping("/Users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userRepository.findAll());
     }
 
 }

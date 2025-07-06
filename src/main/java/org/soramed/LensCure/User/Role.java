@@ -1,4 +1,4 @@
-package org.soramed.eshop.User;
+package org.soramed.LensCure.User;
 
 public enum Role {
 

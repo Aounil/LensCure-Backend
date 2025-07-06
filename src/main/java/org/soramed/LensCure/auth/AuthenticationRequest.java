@@ -1,4 +1,5 @@
-package org.soramed.eshop.auth;
+package org.soramed.LensCure.auth;
+
 
 
 import lombok.AllArgsConstructor;
@@ -10,10 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+public class AuthenticationRequest {
 
-public class AuthenticationResponse {
-    //token that will be sent back to the user
-    private String token;
-
-
+    private String email;
+    private String password;
 }

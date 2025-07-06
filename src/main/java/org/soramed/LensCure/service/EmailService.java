@@ -1,4 +1,4 @@
-package org.soramed.eshop.service;
+package org.soramed.LensCure.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

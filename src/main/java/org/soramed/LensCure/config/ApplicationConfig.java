@@ -1,6 +1,6 @@
-package org.soramed.eshop.config;
+package org.soramed.LensCure.config;
 
-import org.soramed.eshop.User.UserRepository;
+import org.soramed.LensCure.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

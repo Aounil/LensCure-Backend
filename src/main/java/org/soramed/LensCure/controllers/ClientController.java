@@ -1,10 +1,9 @@
-package org.soramed.eshop.controllers;
+package org.soramed.LensCure.controllers;
 
 
-import org.soramed.eshop.product.Product;
-import org.soramed.eshop.product.ProductRepository;
+import org.soramed.LensCure.product.Product;
+import org.soramed.LensCure.product.ProductRepository;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

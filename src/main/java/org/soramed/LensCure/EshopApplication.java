@@ -1,4 +1,4 @@
-package org.soramed.eshop;
+package org.soramed.LensCure;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;

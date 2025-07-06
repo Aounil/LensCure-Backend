@@ -1,4 +1,4 @@
-package org.soramed.eshop.product;
+package org.soramed.LensCure.product;
 
 
 import jakarta.persistence.*;
@@ -31,6 +31,8 @@ public class Product {
 
     @Column(unique = true)
     private String reference;
+
+    private String image_path;
 
 
 

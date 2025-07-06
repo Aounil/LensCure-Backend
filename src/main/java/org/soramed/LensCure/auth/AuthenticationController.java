@@ -1,9 +1,8 @@
-package org.soramed.eshop.auth;
+package org.soramed.LensCure.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.soramed.eshop.service.EmailService;
 
 
 // will have 2 end points that will allow me to creat or register a new acc or authenticate an existing user
@@ -13,11 +12,11 @@ import org.soramed.eshop.service.EmailService;
 @CrossOrigin
 
 
+
 public class AuthenticationController {
 
-    private final AuthenticationService service;
-    private final EmailService emailService;
 
+    private final AuthenticationService service;
 
 
     @PostMapping("/authenticate")

@@ -1,4 +1,4 @@
-package org.soramed.eshop.config;
+package org.soramed.LensCure.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -69,7 +69,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000")); // Allow frontend origin
+        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Allow frontend origin
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allow specific HTTP methods
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type")); // Allow specific headers
         configuration.setAllowCredentials(true); // Allow credentials (e.g., cookies)
