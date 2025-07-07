@@ -1,5 +1,6 @@
 package org.soramed.LensCure.controllers;
 
+import org.soramed.LensCure.User.Role;
 import org.soramed.LensCure.User.User;
 import org.soramed.LensCure.User.UserRepository;
 import org.soramed.LensCure.auth.AuthenticationResponse;
@@ -34,6 +35,17 @@ public class AdminController {
         return ResponseEntity.ok(service.register(request));
     }
 
+    @PutMapping("/update/role/{id}")
+    public ResponseEntity<String> updateRole(@PathVariable int id, @RequestBody Role role) {
+        Optional<User> Opuser = userRepository.findById(id);
+
+        if (Opuser.isPresent()) {
+            User user = Opuser.get();
+            user.setRole(role);
+            userRepository.save(user);
+        }
+        return ResponseEntity.ok("the user's role is updated");
+    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable int id) {

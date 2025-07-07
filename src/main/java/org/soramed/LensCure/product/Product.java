@@ -23,6 +23,7 @@ public class Product {
 
     private double price;
 
+    @Column(length = 2000)
     private String description;
 
     private int quantity;
