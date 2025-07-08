@@ -37,6 +37,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()  // auth endpoints permit it for all roles
                         .requestMatchers("/admin/**").hasAuthority("ADMIN")  // Only ADMIN can access this
                         .requestMatchers("/client/**").hasAuthority("CLIENT")   // Only USER can access this
+                        .requestMatchers("/orders/**").hasAuthority("CLIENT")
                         .requestMatchers("/stock/**").hasAnyAuthority("GESTIONNAIRE_ACHAT", "ADMIN")
                         .anyRequest().authenticated()  // All other requests need authentication
                 )
