@@ -34,23 +34,6 @@ git clone https://github.com/Aounil/LensCure-Backend.git
 cd LensCure-Backend
 ```
 
-### Configure the database
-
-Create the database (example for MySQL):
-
-```sql
-CREATE DATABASE lenscure_db;
-```
-
-Update your `application.properties` or `application.yml` with your database credentials and JWT secret:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/lenscure_db
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
-
-jwt.secret=YOUR_SECRET_KEY
-```
 
 ### Build and run
 
