@@ -19,8 +19,8 @@ LensCure Backend is the server-side application for the LensCure platform — an
 - Spring Boot (REST API)
 - Spring Security with JWT
 - JPA / Hibernate
-- MySQL (or any SQL database)
-- Maven or Gradle (build tool)
+- postgressql
+- Maven
 
 ## Run Locally
 
