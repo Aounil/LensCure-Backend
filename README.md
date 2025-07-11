@@ -1,4 +1,6 @@
-# LensCure Backend
+# LensCure Backend (Spring Boot)  
+
+**🔗 Full-Stack Project:** [Frontend (React)](https://github.com/Aounil/LensCure-Frontend)  
 
 LensCure Backend is the server-side application for the LensCure platform — an online system for managing optical products, orders, users, and roles (clients, admins, stock managers).
 
