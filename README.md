@@ -4,14 +4,14 @@
 
 LensCure Backend is the server-side application for the LensCure platform — an online system for managing optical products, orders, users, and roles (clients, admins, stock managers).
 
-## Features
+## 🚀 Features  
 
-- 🔐 JWT Authentication — Secure login and protected API endpoints.
-- 👥 User Management — Create, update, and manage users with roles.
-- 📦 Product Management — CRUD operations for optical products.
-- 🛒 Order Management — Place and track orders.
-- ⚙️ Role-Based Access Control — Enforce permissions by user role.
-- 🌐 CORS support — Allow frontend and backend to communicate.
+| Feature               | Tech Used               |  
+|-----------------------|-------------------------|  
+| **JWT Auth**          | Spring Security + JWT   |  
+| **Role-Based Access** | `@PreAuthorize`         |  
+| **Product/Order CRUD**| Spring Data JPA + MySQL |  
+| **CORS Config**       | Custom `WebMvcConfig`   |  
 
 ## Tech Stack
 
