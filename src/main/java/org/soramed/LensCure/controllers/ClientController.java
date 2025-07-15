@@ -3,10 +3,7 @@ package org.soramed.LensCure.controllers;
 
 import org.soramed.LensCure.User.User;
 import org.soramed.LensCure.User.UserRepository;
-import org.soramed.LensCure.order.Order;
-import org.soramed.LensCure.order.OrderItem;
-import org.soramed.LensCure.order.OrderItemRepository;
-import org.soramed.LensCure.order.OrderRepository;
+import org.soramed.LensCure.order.*;
 import org.soramed.LensCure.product.Product;
 import org.soramed.LensCure.product.ProductRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,8 +37,7 @@ public class ClientController {
     }
 
     @GetMapping("/orders")
-    public List<?> getOrders(@RequestParam String email) {
-
+    public List<OrderItemResponse> getOrders(@RequestParam String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         User user = optionalUser.get();
 
@@ -52,20 +48,21 @@ public class ClientController {
             List<OrderItem> items = orderItemRepository.findByOrderId(order.getId());
             allItems.addAll(items);
         }
-//        You start with List<OrderItem>.
-//        Each OrderItem points to a Product.
-//        You want List<Product>.
-//        So you map each item → product, then collect them into a new list.
-//
-                //  Convert the list of all OrderItems to a Stream to perform functional operations.
+
+        //used the dto
         return allItems.stream()
-                // For each OrderItem in the stream, map it to its associated Product.
-                .map(item -> item.getProduct())
-                // Gather all the mapped Products back into a new List.
+                .map(item -> new OrderItemResponse(
+                        item.getId(),
+                        item.getProduct().getName(),
+                        item.getProduct().getPrice(),
+                        item.getProduct().getImage_path(),
+                        item.getQuantity()
+                ))
                 .collect(Collectors.toList());
 
 
     }
+
 
 
 }
