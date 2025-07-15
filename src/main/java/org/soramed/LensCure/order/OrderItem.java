@@ -17,7 +17,6 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//    why
     @ManyToOne
     private Product product;
 

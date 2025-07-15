@@ -1,6 +1,9 @@
-package org.soramed.LensCure.order;
+    package org.soramed.LensCure.order;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderItemRepository extends JpaRepository<OrderItem, Integer> {
-}
+    import java.util.List;
+
+    public interface OrderItemRepository extends JpaRepository<OrderItem, Integer> {
+        List<OrderItem> findByOrderId(int orderId);
+    }
