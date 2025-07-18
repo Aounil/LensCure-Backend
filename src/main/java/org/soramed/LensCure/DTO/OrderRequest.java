@@ -1,4 +1,4 @@
-package org.soramed.LensCure.order;
+package org.soramed.LensCure.DTO;
 
 import lombok.Data;
 

@@ -1,6 +1,7 @@
 package org.soramed.LensCure.controllers;
 
 
+import org.soramed.LensCure.DTO.ProductUpdateRequest;
 import org.soramed.LensCure.product.Product;
 import org.soramed.LensCure.product.ProductRepository;
 import org.springframework.http.ResponseEntity;

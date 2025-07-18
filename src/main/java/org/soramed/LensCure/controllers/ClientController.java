@@ -1,6 +1,8 @@
 package org.soramed.LensCure.controllers;
 
 
+import org.soramed.LensCure.DTO.OrderItemResponse;
+import org.soramed.LensCure.DTO.OrderResponse;
 import org.soramed.LensCure.User.User;
 import org.soramed.LensCure.User.UserRepository;
 import org.soramed.LensCure.order.*;
@@ -37,32 +39,36 @@ public class ClientController {
     }
 
     @GetMapping("/orders")
-    public List<OrderItemResponse> getOrders(@RequestParam String email) {
+    public List<?> getOrders(@RequestParam String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         User user = optionalUser.get();
 
         List<Order> orders = orderRepository.findOrderByUserId(user.getId());
         List<OrderItem> allItems = new ArrayList<>();
+        List<OrderResponse> response = new ArrayList<>();
 
         for (Order order : orders) {
             List<OrderItem> items = orderItemRepository.findByOrderId(order.getId());
-            allItems.addAll(items);
+            // Use DTOs here to avoid exposing full entities,
+            // which could cause infinite JSON loops and leak sensitive fields.
+
+            // Map each OrderItem entity to an OrderItemResponse DTO
+            List<OrderItemResponse> itemResponses = items.stream()
+                    .map(item -> new OrderItemResponse(
+                            item.getId(),
+                            item.getProduct().getName(),
+                            item.getProduct().getPrice(),
+                            item.getProduct().getImage_path(),
+                            item.getQuantity()
+                    ))
+                    .collect(Collectors.toList());
+
+            OrderResponse orderResponse = new OrderResponse(order.getId(), order.getCreatedAt(), order.getStatus(), itemResponses);
+            response.add(orderResponse);
         }
 
-        //used the dto
-        return allItems.stream()
-                .map(item -> new OrderItemResponse(
-                        item.getId(),
-                        item.getProduct().getName(),
-                        item.getProduct().getPrice(),
-                        item.getProduct().getImage_path(),
-                        item.getQuantity()
-                ))
-                .collect(Collectors.toList());
-
-
+        return response;
     }
-
 
 
 }

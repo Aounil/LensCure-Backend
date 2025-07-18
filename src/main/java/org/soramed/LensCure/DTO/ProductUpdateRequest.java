@@ -1,4 +1,4 @@
-package org.soramed.LensCure.controllers;
+package org.soramed.LensCure.DTO;
 
 
 import lombok.Getter;
